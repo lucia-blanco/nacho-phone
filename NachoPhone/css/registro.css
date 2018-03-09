@@ -1,6 +1,6 @@
 form {
     margin: 0 auto;
-    width: 310px;
+    width: 510px;
     margin-top: 90px;
 
 }
@@ -19,19 +19,10 @@ form label {
     width: 300px;
 }
 
-#button {
-
-    display: inline-block;
-    width: 208px;
-    height: 28px;
-    margin-bottom: 10px;
+#button { 
+    margin-top: 30px;
     background-color: #3A5EE2;
-    border: 1px solid #3A5EE2;
     color: #FFF;
-    padding: 3px;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 1em;
 }
 
 #envio {
@@ -42,7 +33,7 @@ form label {
 
 #registro {
     display: inline-block;
-    width: 200px;
+    width: 500px;
     margin-bottom: 10px;
     background-color: #FFF;
     border: 1px solid #3A5EE2;
@@ -53,15 +44,16 @@ form label {
     font-size: 1em;
 }
 
-a {
+a, a:hover{
     text-decoration: none;
 }
 
 h2 {
     color: #3A5EE2;
     text-align: center;
-    margin-bottom: 15px;
-    margin-top: 18%;
+    margin-bottom: 25px;
+    margin-top: 20%;
+    font-size: 2.3em;;
 }
 
 #top {
@@ -86,3 +78,9 @@ h2 {
     color: #FFF;
 }
 
+.error{
+    display: none;
+    color: red;
+    font-size: 0.8em;
+    margin: 0;
+}

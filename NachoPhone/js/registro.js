@@ -1,4 +1,5 @@
 function validacion() {
+    var correcto=true;
     //Valida DNI
     valorDNI = document.getElementById("dni").value;
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
@@ -8,8 +9,7 @@ function validacion() {
         document.getElementById("dni").style.borderColor = "red";
         document.getElementById("dni").style.color = "#888";
         document.getElementById("eldni").style.display = "inline";
-       
-        return false;
+        correcto=false;
     } else {
         document.getElementById("dni").style.borderColor = "green";
         document.getElementById("dni").style.color = "#000";
@@ -21,7 +21,7 @@ function validacion() {
         document.getElementById("dni").style.borderColor = "red";
         document.getElementById("dni").style.color = "#888";
         document.getElementById("eldni").style.display = "inline";
-        return false;
+        correcto=false;
     } else {
         document.getElementById("dni").style.borderColor = "green";
         document.getElementById("dni").style.color = "#000";
@@ -37,7 +37,7 @@ function validacion() {
         document.getElementById("nombre").style.borderColor = "red";
         document.getElementById("nombre").style.color = "#888";
         document.getElementById("elnombre").style.display = "inline";
-        return false;
+        correcto=false;
     } else {
         document.getElementById("nombre").style.borderColor = "green";
         document.getElementById("nombre").style.color = "#000";
@@ -53,7 +53,7 @@ function validacion() {
         document.getElementById("apellido").style.borderColor = "red";
         document.getElementById("apellido").style.color = "#888";
         document.getElementById("elape").style.display = "inline";
-        return false;
+        correcto=false;
     } else {
         document.getElementById("apellido").style.borderColor = "green";
         document.getElementById("apellido").style.color = "#000";
@@ -69,7 +69,7 @@ function validacion() {
         document.getElementById("contraseña").style.borderColor = "red";
         document.getElementById("contraseña").style.color = "#888";
         document.getElementById("elpass").style.display = "inline";
-        return false;
+        correcto=false;
     } else {
         document.getElementById("contraseña").style.borderColor = "green";
         document.getElementById("contraseña").style.color = "#000";
@@ -83,7 +83,7 @@ function validacion() {
         document.getElementById("tlf").style.borderColor = "red";
         document.getElementById("tlf").style.color = "#888";
         document.getElementById("eltlf").style.display = "inline";
-        return false;
+        correcto=false;
     } else {
         console.log("telefono no valido");
         document.getElementById("tlf").style.borderColor = "green";
@@ -98,7 +98,7 @@ function validacion() {
         document.getElementById("mail").style.borderColor = "red";
         document.getElementById("mail").style.color = "#888";
         document.getElementById("elmail").style.display = "inline";
-        return false;
+        correcto=false;
 
     } else {
         document.getElementById("mail").style.borderColor = "green";
@@ -107,7 +107,7 @@ function validacion() {
     }
 
    
-    //Validar que se ha seleccionado una opción de una lista
+    /*//Validar que se ha seleccionado una opción de una lista
     indice = document.getElementById("opciones").selectedIndex;
     if (indice == null || indice == 0) {
         console.log("no has elegido nada de la lista");
@@ -149,9 +149,14 @@ function validacion() {
                 return false;
             }
         }
-    }
-
-    
+    }*/
+    return correcto;
 }
 
 document.getElementById("button").onclick = validacion;
+
+function quitarError(dato, mensaje){
+    document.getElementById(dato).style.borderColor="#CCC"
+    document.getElementById(mensaje).style.display="none"
+    return false;
+}
