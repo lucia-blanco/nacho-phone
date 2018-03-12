@@ -21,8 +21,9 @@
 <body>
     <div>
     <%      
-          String tlf = request.getParameter("numeros");
+         String tlf = request.getParameter("numeros");
          String correo = request.getParameter("mail");
+         String tarifa = "";
         Class.forName("com.mysql.jdbc.Driver");
           Connection conexion3 = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s3 = conexion3.createStatement();
@@ -41,6 +42,8 @@
         out.println("<tr><th colspan=2 > Megas </th></tr>");
         out.println("<tr><td>" + tar.getString("mbTarifa") + "</td><td>" + (tar.getInt("mbTarifa") - tar.getInt("mbConsumidos")) + "</td></tr>");
         out.println("</table>"); 
+        
+        tarifa = tar.getString("nomTarifa");
         }
         
             conexion3.close();
@@ -50,7 +53,11 @@
         %>
   
 
-
+        <form method="get" action="cambiaTarifa.jsp">
+          <input type="text" name="tlf" value="<% out.println(tlf); %>"/>
+          <input type="text" name="tarifa" value="<% out.println(tarifa); %>"/>
+          <button type="submit"> Cambiar tarifa </button>
+        </form>
         <form action="usuario2.jsp" method="GET">
             <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" />  
             <div id="boton">
