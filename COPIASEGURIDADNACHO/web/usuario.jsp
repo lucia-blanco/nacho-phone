@@ -18,11 +18,11 @@
     <title></title>
 </head>
 
-<body>
+<body onload='showFields(document.getElementById("numeros").value)'>
     <%      
           String correo = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
          
@@ -45,13 +45,13 @@
         </form>
         
         <%
-     //out.println("<form action='' method='get' accept-charset='utf-8'>");    
+        
      out.println("<div id='consumo'>"); 
      out.println("<div id='lineas'>");
      out.println("<form action='uLineaSelec.jsp' method='GET'>");
-     out.println("<select name= 'numeros' id='numeros' > ");
+     out.println("<select name= 'numeros' id='numeros' onchange='showFields(this.value)' > ");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
+          Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s2 = conexion2.createStatement();
     
 
@@ -65,15 +65,75 @@
             conexion2.close();
             
         %>
-            <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" />
-            </select>
-            <input id="enviar" type="submit" name="enviar" value="ENVIAR" />
-            </form>
+            
+            </select><br/><br/>
+            
+           
+            
+        
+    <div id="Show_update" style="color:black;">To Update the designation...</div>
         </div>
         
 
     </div>
       
 </body>
+<script>
+
+function showFields(string1)
+
+{
+
+var xRequest1;
+
+if(string1=="")
+
+{
+
+document.getElementById("Show_update").innerHTML="";
+
+return;
+
+}
+
+if(window.XMLHttpRequest)
+
+{
+
+xRequest1=new XMLHttpRequest();
+
+}
+
+else
+
+{
+
+xRequest1=new ActiveXObject("Microsoft.XMLHTTP");
+
+}
+
+xRequest1.onreadystatechange=function ()
+
+{
+
+if((xRequest1.readyState==4) && (xRequest1.status==200))
+
+{
+
+document.getElementById("Show_update").innerHTML
+
+=xRequest1.responseText;
+
+}
+
+}
+
+xRequest1.open("get","cargaTarifa.jsp?q="+string1,"true");
+
+xRequest1.send();
+
+}
+
+</script>
 </html>
 
