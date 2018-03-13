@@ -24,18 +24,18 @@
 <body>
       <%      
           String tlf = request.getParameter("tlf");
-          out.println(tlf);
-                   
+          out.print("<span>Linea: </span>" + tlf);
+          out.print("<br/>");
           String tarifa = request.getParameter("tarifa");
-          out.println(tarifa);
+          out.print("<span>Tarifa actual: </span>" + tarifa);
           
-          
-          
+          String correo = request.getParameter("mail");
+           
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM TARIFA where nomTarifa !='"+tarifa+"'");
-          out.println("<form method='get' action='guardaTarifa.jsp'>");
+          out.println("<form method='get' action='uGuardaTarifa.jsp'>");
           out.println("<select id='t' name ='t'>");
             while (dato.next()) {
             
@@ -49,9 +49,17 @@
     %>
    
        
-          <input type="text" name="tlf" value="<% out.println(tlf); %>"/>
-          <input type="text" name="tarifa" value="<% out.println(tarifa); %>"/>
+          <input style='display: none;' type="text" name="tlf" value="<% out.println(tlf); %>"/>
+          <input style='display: none;' type="text" name="tarifa" value="<% out.println(tarifa); %>"/>
+          <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
           <button type="submit"> Cambiar tarifa </button>
+        </form>
+        <form action="uLineaSelec.jsp" method="GET">
+            <input style='display: none;' type="text" id='' name='numeros' value="<% out.print(tlf); %>" />
+            <input style='display: none;' type="text" name='mail' value="<% out.println(correo); %>"/>
+            <div id="boton">
+            <input id="button" type="submit" name="button" value="Volver">
+            </div>
         </form>
        
     

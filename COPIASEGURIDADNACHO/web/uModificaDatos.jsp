@@ -25,14 +25,13 @@
       <%      
           String correo = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
           while (dato.next()) {
     %>
-    <form action="guardaMod.jsp" method="GET">
-       
-        <input type="hidden" id="mail" name="mail" value="<%= dato.getString("email") %>" /><br/>
+    <form action="uGuardaDatos.jsp" method="GET">
+        <input style="display: none;" type="text" id="mail" name="mail" value="<%= dato.getString("email") %>" /><br/>
         <label for="contraseña">Contraseña </label>
         <input type="password" id="contraseña" name="contraseña" value="<%= dato.getString("passw")%>" /><br/>
         <label for="dni">DNI </label>
@@ -47,7 +46,13 @@
             <input id="button" type="submit" name="button" value="Enviar">
         </div> 
     </form>
-       <%    out.println(dato.getString("email")); }
+        <form action="usuario.jsp" method="GET">
+            <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" />  
+            <div id="boton">
+            <input id="button" type="submit" name="button" value="Volver">
+            </div>
+        </form>
+       <%    }
 
             conexion.close(); 
        %>

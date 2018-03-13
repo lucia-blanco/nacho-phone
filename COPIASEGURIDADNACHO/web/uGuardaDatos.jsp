@@ -24,19 +24,20 @@
 <body>
     <%
       String correo = request.getParameter("mail");
-      String tlf = request.getParameter("tlf");
-      out.print(tlf);
+      
       Class.forName("com.mysql.jdbc.Driver");
-      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
+      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
       Statement s = conexion.createStatement();
 
       request.setCharacterEncoding("UTF-8");
       
-      String actualizacion = "UPDATE GASTO SET "
+      String actualizacion = "UPDATE usuario SET "
                            
-                           + "Tarifa=" + Integer.valueOf(request.getParameter("t"))
-                           
-                           + " WHERE telefono='" + request.getParameter("tlf") + "'";
+                           + "nombre='" + request.getParameter("nombre")
+                           + "', apellido='" + request.getParameter("apellido")
+                           + "', passw='" + request.getParameter("contraseña")
+                           + "', tlfUsuario='" + request.getParameter("tlf")
+                           + "' WHERE email='" + request.getParameter("mail") + "'";
         
       s.execute(actualizacion);
       out.println("Actulizado correctamente");
@@ -50,4 +51,3 @@
         </form>
   </body>
 </html>
-

@@ -20,7 +20,7 @@
 
 <body>
     <%      
-          String correo = request.getParameter("user");
+          String correo = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
@@ -38,10 +38,17 @@
                 out.println("<div class='datos'>" +  dato.getString("tlfUsuario")    +    "</div></div>");
             }
             conexion.close();  
+        %>
+        <form method="get" action="uModificaDatos.jsp">
+          <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
+          <button type="submit"> Modificar </button>
+        </form>
         
+        <%
+     //out.println("<form action='' method='get' accept-charset='utf-8'>");    
      out.println("<div id='consumo'>"); 
      out.println("<div id='lineas'>");
-     out.println("<form action='aLineaSelec.jsp' method='GET'>");
+     out.println("<form action='uLineaSelec.jsp' method='GET'>");
      out.println("<select name= 'numeros' id='numeros' > ");
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
@@ -63,23 +70,10 @@
             <input id="enviar" type="submit" name="enviar" value="ENVIAR" />
             </form>
         </div>
-        <form method="get" action="aBorraUsuario.jsp">
-          <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
-          <button type="submit"> Eliminar </button>
-        </form>
-        <form method="get" action="aModificaUsuario.jsp">
-          <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
-          <button type="submit"> Modificar </button>
-        </form>
+        
 
     </div>
-    
-    <form action="admin.jsp" method="GET">
-            <input style='display: none;' type="text" id='' name='mail' value="<% out.print(correo); %>" />  
-            <div id="boton">
-            <input id="button" type="submit" name="button" value="Volver">
-            </div>
-        </form>
       
 </body>
 </html>
+
