@@ -13,7 +13,7 @@
 <body>
     <h2>NachoPhone</h2>
 
-    <form action="usuario2.jsp" method="get" accept-charset="utf-8" onSubmit="return validacion()" id="formulario">
+    <form action="usuario.jsp" method="get" accept-charset="utf-8" onSubmit="return validacion()" id="formulario">
         <label for="tlf">Correo electrónico </label><br>
         <input type="text" id='mail' name='mail' value="" /><span id="elmail" style="display: none; color: red;"> El correo eléctronico no es válido</span><br>
         <label for="contraseña">Contraseña </label><br>
