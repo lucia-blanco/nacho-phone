@@ -30,7 +30,7 @@
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
           while (dato.next()) {
     %>
-    <form action="guardaMod.jsp" method="GET">
+    <form action="aGuardaDatos.jsp" method="GET">
         <input style="display: none;" type="text" id="mail" name="mail" value="<%= dato.getString("email") %>" /><br/>
         <label for="contraseña">Contraseña </label>
         <input type="password" id="contraseña" name="contraseña" value="<%= dato.getString("passw")%>" /><br/>

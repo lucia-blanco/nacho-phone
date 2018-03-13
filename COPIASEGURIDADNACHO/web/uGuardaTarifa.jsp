@@ -1,3 +1,5 @@
+
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -18,43 +20,34 @@
     <title></title>
 </head>
 
+
 <body>
     <%
+      String correo = request.getParameter("mail");
+      String tlf = request.getParameter("tlf");
+      
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
       Statement s = conexion.createStatement();
 
       request.setCharacterEncoding("UTF-8");
       
-      // Comprueba la existencia del mail de usuario introducido
-      String consultaMail = "SELECT * FROM USUARIO WHERE email='"
-                                + request.getParameter("mail") + "'";      
-      
-      ResultSet existe = s.executeQuery (consultaMail);
-      existe.last();
-      
-      if (existe.getRow() != 0) {
-        out.println("El correo electrónico  ya está en uso.");
-      } else { 
-        String insercion = "INSERT INTO USUARIO (email, passw, dni, nombre, apellido, tlfUsuario) VALUES ("
-          
-          + " '" + request.getParameter("mail")
-          + "', '" + request.getParameter("contraseña")
-          + "', '" + request.getParameter("dni")
-          + "', '" + request.getParameter("nombre")
-          + "', '" + request.getParameter("apellido")
-          + "', '" + request.getParameter("tlf") + "')";
-        s.execute(insercion);
-        out.println("Te has registrado correctamente.");
-      }
+      String actualizacion = "UPDATE GASTO SET "
+                           
+                           + "Tarifa=" + Integer.valueOf(request.getParameter("t"))
+                           
+                           + " WHERE telefono='" + request.getParameter("tlf") + "'";
+        
+      s.execute(actualizacion);
+      out.println("Tarifa cambiada correctamente");
       conexion.close();
     %>
-        <form action="index.jsp" method="GET">
+     <form action="usuario.jsp" method="GET">
+            <input style='display: none;' type="text" id='' name='mail' value="<% out.print(correo); %>" />  
             <div id="boton">
             <input id="button" type="submit" name="button" value="Volver">
             </div>
         </form>
-
-    
-</body>
+  </body>
 </html>
+

@@ -53,14 +53,15 @@
         %>
   
 
-        <form method="get" action="cambiaTarifa.jsp">
+        <form method="get" action="aCambiaTarifa.jsp">
           <input style='display: none;' type="text" name="tlf" value="<% out.println(tlf); %>"/>
           <input style='display: none;' type="text" name="tarifa" value="<% out.println(tarifa); %>"/>
           <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" /> 
           <button type="submit"> Cambiar tarifa </button>
         </form>
-        <form action="usuario2.jsp" method="GET">
-            <input style='display: none;' type="text" id='mail' name='mail' value="<% out.print(correo); %>" />  
+        <form action="crudUsuario.jsp" method="GET">
+            <input style='display: none;' type="text" id='user' name='user' value="<% out.print(correo); %>" /> 
+            <input style='display: none;' type="text" name="tlf" value="<% out.println(tlf); %>"/>
             <div id="boton">
             <input id="button" type="submit" name="button" value="Volver">
             </div>

@@ -20,14 +20,14 @@
 
 <body>
     <%      
-          String correo = request.getParameter("mail");
+          String correoAdmin = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO ORDER BY APELLIDO");
          
     %>
-    <div id="top"><a href="index.jsp" id="logo">NachoPhone</a></div>
+    <div id="top"><a href="aLogin.jsp" id="logo">NachoPhone</a></div>
     <div id="dp">
         <%
           out.println("<form action='crudUsuario.jsp' method='GET'>");
@@ -42,7 +42,7 @@
     
             
         %>
-            <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" />
+            <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correoAdmin); %>" />
             
             
         </div>

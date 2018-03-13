@@ -39,7 +39,7 @@
             }
             conexion.close();  
         %>
-        <form method="get" action="modificaDatos.jsp">
+        <form method="get" action="uModificaDatos.jsp">
           <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
           <button type="submit"> Modificar </button>
         </form>
@@ -48,7 +48,7 @@
      //out.println("<form action='' method='get' accept-charset='utf-8'>");    
      out.println("<div id='consumo'>"); 
      out.println("<div id='lineas'>");
-     out.println("<form action='lineaSelec.jsp' method='GET'>");
+     out.println("<form action='uLineaSelec.jsp' method='GET'>");
      out.println("<select name= 'numeros' id='numeros' > ");
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");

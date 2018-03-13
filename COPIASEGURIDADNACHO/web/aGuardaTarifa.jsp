@@ -42,12 +42,11 @@
       out.println("Tarifa cambiada correctamente");
       conexion.close();
     %>
-     <form action="usuario2.jsp" method="GET">
-            <input style='display: none;' type="text" id='' name='mail' value="<% out.print(correo); %>" />  
+     <form action="crudUsuario.jsp" method="GET">
+            <input style='display: none;' type="text" id='' name='user' value="<% out.print(correo); %>" />  
             <div id="boton">
             <input id="button" type="submit" name="button" value="Volver">
             </div>
         </form>
   </body>
 </html>
-

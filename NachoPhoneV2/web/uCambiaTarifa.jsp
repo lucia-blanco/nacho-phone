@@ -35,7 +35,7 @@
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM TARIFA where nomTarifa !='"+tarifa+"'");
-          out.println("<form method='get' action='guardaTarifa.jsp'>");
+          out.println("<form method='get' action='uGuardaTarifa.jsp'>");
           out.println("<select id='t' name ='t'>");
             while (dato.next()) {
             
@@ -54,7 +54,7 @@
           <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
           <button type="submit"> Cambiar tarifa </button>
         </form>
-        <form action="lineaSelec.jsp" method="GET">
+        <form action="uLineaSelec.jsp" method="GET">
             <input style='display: none;' type="text" id='' name='numeros' value="<% out.print(tlf); %>" />
             <input style='display: none;' type="text" name='mail' value="<% out.println(correo); %>"/>
             <div id="boton">
