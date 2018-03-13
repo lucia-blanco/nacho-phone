@@ -24,30 +24,19 @@
 <body>
     <%
       String correo = request.getParameter("mail");
-      String tlf = request.getParameter("tlf");
-      
+      out.println(correo);
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
       Statement s = conexion.createStatement();
+      String query = "DELETE FROM USUARIO WHERE email= '" + correo + "' ";
 
-      request.setCharacterEncoding("UTF-8");
+      int i = s.executeUpdate(query);
+     
       
-      String actualizacion = "UPDATE GASTO SET "
-                           
-                           + "Tarifa=" + Integer.valueOf(request.getParameter("t"))
-                           
-                           + " WHERE telefono='" + request.getParameter("tlf") + "'";
-        
-      s.execute(actualizacion);
-      out.println("Tarifa cambiada correctamente");
-      conexion.close();
-    %>
-     <form action="usuario2.jsp" method="GET">
-            <input style='display: none;' type="text" id='' name='mail' value="<% out.print(correo); %>" />  
-            <div id="boton">
-            <input id="button" type="submit" name="button" value="Volver">
-            </div>
-        </form>
+      
+      s.close();
+      
+    %>	
+    <script>document.location = "admin.jsp"</script> 
   </body>
 </html>
-

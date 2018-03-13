@@ -20,7 +20,7 @@
 
 <body>
     <%      
-          String correo = request.getParameter("mail");
+          String correo = request.getParameter("user");
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
           Statement s = conexion.createStatement();
@@ -38,14 +38,7 @@
                 out.println("<div class='datos'>" +  dato.getString("tlfUsuario")    +    "</div></div>");
             }
             conexion.close();  
-        %>
-        <form method="get" action="modificaDatos.jsp">
-          <input style='display: none;' type="text" name="mail" value="<% out.println(correo); %>"/>
-          <button type="submit"> Modificar </button>
-        </form>
         
-        <%
-     //out.println("<form action='' method='get' accept-charset='utf-8'>");    
      out.println("<div id='consumo'>"); 
      out.println("<div id='lineas'>");
      out.println("<form action='lineaSelec.jsp' method='GET'>");
@@ -70,10 +63,16 @@
             <input id="enviar" type="submit" name="enviar" value="ENVIAR" />
             </form>
         </div>
-        
+        <form method="get" action="borraUsuario.jsp">
+          <input type="text" name="mail" value="<% out.println(correo); %>"/>
+          <button type="submit"> Eliminar </button>
+        </form>
+        <form method="get" action="modificaUsuario.jsp">
+          <input type="text" name="mail" value="<% out.println(correo); %>"/>
+          <button type="submit"> Modificar </button>
+        </form>
 
     </div>
       
 </body>
 </html>
-

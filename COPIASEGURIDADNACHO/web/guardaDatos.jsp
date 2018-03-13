@@ -24,7 +24,6 @@
 <body>
     <%
       String correo = request.getParameter("mail");
-      String tlf = request.getParameter("tlf");
       
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
@@ -32,22 +31,23 @@
 
       request.setCharacterEncoding("UTF-8");
       
-      String actualizacion = "UPDATE GASTO SET "
+      String actualizacion = "UPDATE usuario SET "
                            
-                           + "Tarifa=" + Integer.valueOf(request.getParameter("t"))
-                           
-                           + " WHERE telefono='" + request.getParameter("tlf") + "'";
+                           + "nombre='" + request.getParameter("nombre")
+                           + "', apellido='" + request.getParameter("apellido")
+                           + "', passw='" + request.getParameter("contraseña")
+                           + "', tlfUsuario='" + request.getParameter("tlf")
+                           + "' WHERE email='" + request.getParameter("mail") + "'";
         
       s.execute(actualizacion);
-      out.println("Tarifa cambiada correctamente");
+      out.println("Actulizado correctamente");
       conexion.close();
     %>
      <form action="usuario2.jsp" method="GET">
-            <input style='display: none;' type="text" id='' name='mail' value="<% out.print(correo); %>" />  
+            <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" />  
             <div id="boton">
             <input id="button" type="submit" name="button" value="Volver">
             </div>
         </form>
   </body>
 </html>
-
