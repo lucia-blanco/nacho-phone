@@ -49,7 +49,11 @@
       }
       conexion.close();
     %>
-        
+        <form action="index.jsp" method="GET">
+            <div id="boton">
+            <input id="button" type="submit" name="button" value="Volver">
+            </div>
+        </form>
 
     
 </body>
