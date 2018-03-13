@@ -1,0 +1,104 @@
+#top {
+    background-color: #3A5EE2;
+    color: #FFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to bottom right, #3A5EE2, #FFF);
+    position: absolute;
+    
+}
+
+#logo {
+    font-size: 2em;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+#logo:visited {
+    color: #FFF;
+}
+
+#dp {
+    margin-top: 15%;
+    margin-left: 5%;
+    min-height: 310px;
+    min-width: 300px;
+    float: left;
+    border: 2px solid #3A5EE2;
+    width: 35%;
+    color: #888;
+    padding: 15px;
+}
+
+#consumo {
+    margin-top: 15%;
+    margin-left: 5%;
+    min-width: 300px;
+    min-height: 300px;
+    float: left;
+    border: 2px solid #3A5EE2;
+    width: 45%;
+    color: #888;
+    padding: 15px;
+    
+}
+
+.name {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    
+}
+
+select {
+    border: 1px solid #3A5EE2;
+    background-color: #3A5EE2;
+    color: #FFF;
+    padding: 8px;
+    height: 30px;
+}
+
+.izquierda {
+    float:left;
+    width: 40%;
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.derecha {
+    float: right;
+    width: 60%;
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.tarifa {
+   
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+
+
+#button {
+    border: 1px solid #3A5EE2;
+    color: #3A5EE2;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+#lineas {
+    margin-bottom: 10px;
+}
+
+.datos {
+   
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

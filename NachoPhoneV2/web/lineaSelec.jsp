@@ -25,7 +25,7 @@
          String correo = request.getParameter("mail");
          String tarifa = "";
         Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion3 = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s3 = conexion3.createStatement();
          
           

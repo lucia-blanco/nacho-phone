@@ -21,11 +21,11 @@
     <title>NachoPhone/Registro</title>
 </head>
 
-<body>
+<body class="text-center">
     <div id="top"><a href="index.html" id="logo">NachoPhone</a></div>
-    <form action="" method="get" accept-charset="utf-8" id="formulario" onsubmit="return validacion()">
+    <form action="" method="get" accept-charset="utf-8" id="formulario" class="text-center" onsubmit="return validacion()">
         <h2 class="h1 mb-3">Regístrate</h2>
-        <div class="form-row">
+        <div class="form-row form-group">
             <div class="col">
                 <input class="form-control" type="email" id="mail" name="mail" value="" placeholder="Correo electrónico" onchange="quitarError('mail', 'errorMail')"">
                 <span id="errorMail" class="error"> No es un email válido</span>
@@ -44,7 +44,7 @@
             <input class="form-control" placeholder="Apellido" type="text" id="apellido" name="apellido1" value="">
             <span id="errorApellido" class="error">El campo apellido no puede estar vacio</span>
         </div>
-        <div class="form-row">
+        <div class="form-row form-group">
             <div class="col">
                 <input class="form-control" placeholder="DNI" type="text" id="dni" name="dni" value="" onchange="quitarError('dni', 'errorDni')">
                 <span id="errorDni"  class="error"> El DNI no es correcto</span>

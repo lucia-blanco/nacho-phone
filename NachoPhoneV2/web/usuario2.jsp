@@ -22,7 +22,7 @@
     <%      
           String correo = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
          
@@ -44,7 +44,7 @@
      out.println("<form action='lineaSelec.jsp' method='GET'>");
      out.println("<select name= 'numeros' id='numeros' > ");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s2 = conexion2.createStatement();
     
 

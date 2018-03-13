@@ -27,7 +27,7 @@
       String tlf = request.getParameter("tlf");
       out.print(tlf);
       Class.forName("com.mysql.jdbc.Driver");
-      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
       Statement s = conexion.createStatement();
 
       request.setCharacterEncoding("UTF-8");

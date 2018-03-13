@@ -32,7 +32,7 @@
           
           
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM TARIFA where nomTarifa !='"+tarifa+"'");
           out.println("<form method='get' action='guardaTarifa.jsp'>");
