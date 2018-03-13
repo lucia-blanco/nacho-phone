@@ -26,6 +26,7 @@
 <body id="fondo-principal" class="text-center">
 	<div id="wrapper-login" class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
 		<main role="main" class="inner cover">
+      <a href="aLogin.jsp">Admin</a>
       <form action="" method="get" accept-charset="utf-8" onSubmit="return validacion()" id="formulario" class="form-signin">
         <h1 class="h1 mb-3 titulo">NachoPhone</h1>
         <h5 class="h5 font-weight-normal">Por favor, identifícate</h5>
