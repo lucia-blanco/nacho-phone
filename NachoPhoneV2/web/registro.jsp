@@ -32,7 +32,7 @@
       <h2 class="h1 mb-3 regristro">Regístrate</h2>
       <div class="form-row form-group">
         <div class="col">
-          <input class="form-control" type="email" id="mail" name="mail" value="" placeholder="Correo electrónico" onchange="quitarError('mail', 'errorMail')"">
+          <input class="form-control" type="email" id="mail" name="mail" value="" placeholder="Correo electrónico" onchange="quitarError('mail', 'errorMail')">
           <span id="errorMail" class="error"> No es un email válido</span>
         </div>
         
