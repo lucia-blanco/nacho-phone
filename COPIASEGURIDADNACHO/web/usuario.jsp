@@ -37,7 +37,7 @@
   %>
 
   <nav class="navbar navbar-expand-md fixed-top">
-		<a href="home.html" id="logo-navbar">NachoPhone</a>
+		<a href="usuario.jsp" id="logo-navbar">NachoPhone</a>
 	</nav>
     <div class="container">
       <%

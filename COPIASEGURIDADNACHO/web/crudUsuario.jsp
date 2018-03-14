@@ -22,12 +22,14 @@
     <%      
           String correo = request.getParameter("user");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
          
     %>
-    <div id="top"><a href="index.jsp" id="logo">NachoPhone</a></div>
+    <nav class="navbar navbar-expand-md fixed-top">
+      <a href="admin.jsp" id="logo-navbar">NachoPhone</a>
+    </nav>
     <div id="dp">
         <%
             while (dato.next()) {
@@ -44,7 +46,7 @@
      out.println("<form action='aLineaSelec.jsp' method='GET'>");
      out.println("<select name= 'numeros' id='numeros' > ");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s2 = conexion2.createStatement();
     
 

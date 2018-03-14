@@ -22,12 +22,14 @@
     <%      
           String correoAdmin = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO ORDER BY APELLIDO");
          
     %>
-    <div id="top"><a href="aLogin.jsp" id="logo">NachoPhone</a></div>
+    <nav class="navbar navbar-expand-md fixed-top">
+      <a href="admin.jsp" id="logo-navbar">NachoPhone</a>
+    </nav>
     <div id="dp">
         <%
           out.println("<form action='crudUsuario.jsp' method='GET'>");
