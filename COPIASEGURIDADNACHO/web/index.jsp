@@ -35,9 +35,6 @@
         <input type="password" id="password" name="password" value="" class="form-control form-group" placeholder="Contraseña" required>
         <input id="button" class="btn btn-lg btn-basic btn-block" type="submit" name="button" value="Acceder">
         <div id='error' style="display:none;"class='alert alert-danger mt-3' role='alert'>Correo o contraseña inválidos</div>
-        <%
-          
-        %>
         <a href="registro.jsp" id="registro">Registrarse</a>
         <small class="mt-5 mb-3 text-muted">© Nachophone 2018</small>
       </form>

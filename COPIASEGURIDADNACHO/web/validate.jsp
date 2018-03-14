@@ -12,15 +12,13 @@
       //out.println("welcome " + userid);
       //out.println("<a href='logout.jsp'>Log out</a>");
       response.sendRedirect("usuario.jsp");
-    } else { %>
+    } else { 
+   %>
       <script type="text/javascript">
-        alert("Correo o contraseña inválidos, por favor pulsa 'Aceptar' e inténtalo de nuevo");
-        window.location.href = "index.jsp"; 
+        window.location.href = "index.jsp";
+        window.onload(alert("Correo o contraseña inválidos, por favor pulsa 'Aceptar' e inténtalo de nuevo"));
       </script> 
-      <%
-      //response.sendRedirect("index.jsp");
-      %>
-      
     <%
+      //response.sendRedirect("index.jsp");
     }
   %>

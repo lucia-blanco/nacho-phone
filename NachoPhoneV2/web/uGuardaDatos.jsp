@@ -26,7 +26,7 @@
       String correo = request.getParameter("mail");
       
       Class.forName("com.mysql.jdbc.Driver");
-      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
       Statement s = conexion.createStatement();
 
       request.setCharacterEncoding("UTF-8");
@@ -35,7 +35,7 @@
                            
                            + "nombre='" + request.getParameter("nombre")
                            + "', apellido='" + request.getParameter("apellido")
-                           + "', passw='" + request.getParameter("contraseña")
+                           + "', passw='" + request.getParameter("password")
                            + "', tlfUsuario='" + request.getParameter("tlf")
                            + "' WHERE email='" + request.getParameter("mail") + "'";
         

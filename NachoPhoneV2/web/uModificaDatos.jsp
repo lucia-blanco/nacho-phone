@@ -25,15 +25,15 @@
       <%      
           String correo = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
           while (dato.next()) {
     %>
     <form action="uGuardaDatos.jsp" method="GET">
         <input style="display: none;" type="text" id="mail" name="mail" value="<%= dato.getString("email") %>" /><br/>
-        <label for="contraseña">Contraseña </label>
-        <input type="password" id="contraseña" name="contraseña" value="<%= dato.getString("passw")%>" /><br/>
+        <label for="password">Contraseña </label>
+        <input type="password" id="password" name="password" value="<%= dato.getString("passw")%>" /><br/>
         <label for="dni">DNI </label>
         <input type="text" id="dni" name="dni" value="<%= dato.getString("dni")%>" /><br/>
         <label for="nombre">Nombre </label>
