@@ -1,0 +1,54 @@
+#wrapper-reg{
+    width: 50%;
+}
+#wrapper-login {
+    margin-top: 5%;
+    width: 40%;
+}
+#button { 
+    margin-top: 30px;
+    background-color: #3A5EE2;
+    color: #FFF;
+}
+
+#envio {
+    margin: 0 auto;
+    width: 210px;
+    margin-top: 30px;
+}
+
+#registro {
+    display: block;
+}
+
+a, a:hover{
+    text-decoration: none;
+}
+
+h2 {
+    color: #3A5EE2;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 10%;
+    font-size: 2.3em;;
+}
+
+.navbar {
+    background-color: #3A5EE2;
+    background: linear-gradient(to bottom right, #3A5EE2, #FFF);
+}
+#logo-navbar{
+    color: #FFF;
+    font-size: 2em; 
+}
+
+#logo, #logo:visited {
+    color: #FFF;
+}
+
+.error{
+    display: none;
+    color: red;
+    font-size: 0.8em;
+    margin: 0;
+}
