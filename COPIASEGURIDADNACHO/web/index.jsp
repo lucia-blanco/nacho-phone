@@ -23,23 +23,35 @@
     <title>Login</title>
 </head>
 
-<body id="fondo-principal" class="text-center">
+<body id="fondo-principal">
 	<div id="wrapper-login" class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
 		<main role="main" class="inner cover">
-      <a href="aLogin.jsp">Admin</a>
+      <% 
+        String mostrar = request.getParameter("q");
+      %>
       <form action="validate.jsp" method="get" accept-charset="utf-8" onSubmit="return validacion()" id="formulario" class="form-signin">
         <h1 class="h1 mb-3 titulo">NachoPhone</h1>
         <h5 class="h5 font-weight-normal">Por favor, identifícate</h5>
-        <span id="errorLogin" style="display: none; color: red;">Correo electrónico o contraseña inválidos</span><br>
+        
+        <span id='<% out.print(mostrar); %>' style="display: none;"class='alert alert-danger mt-3' role='alert'>Correo electrónico o contraseña inválidos</span><br>
+        <a style="margin-bottom: 5px; font-size: small;" href="aLogin.jsp">¿Eres admin?</a>
         <input type="email" id="mail" name="mail" class="form-control form-group" placeholder="Correo electrónico" required autofocus value="">
         <input type="password" id="password" name="password" value="" class="form-control form-group" placeholder="Contraseña" required>
         <input id="button" class="btn btn-lg btn-basic btn-block" type="submit" name="button" value="Acceder">
-        <div id='error' style="display:none;"class='alert alert-danger mt-3' role='alert'>Correo o contraseña inválidos</div>
         <a href="registro.jsp" id="registro">Registrarse</a>
         <small class="mt-5 mb-3 text-muted">© Nachophone 2018</small>
       </form>
     </main>
   </div>  
 </body>
-
+<script>
+    window.onload = function alert() {
+      //mostrar = request.getParameter("q");
+      document.getElementById("cambia").style.display = "inline-block";
+    };
+    
+    window.onclick = function quitar() {
+      document.getElementById("cambia").style.display = "none";
+    };
+</script>
 </html>

@@ -11,6 +11,28 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/estilo.css">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+      <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <title>Carga Tarifa</title>
   </head>
   <body>
@@ -26,9 +48,19 @@
         out.println("<tr><th colspan=2 > Tarifa </th></tr>");
         out.println("<tr><td colspan=2 >" + tar.getString("nomTarifa") + "</td></tr>");
         out.println("<tr><th colspan=2 > Minutos </th></tr>");
-        out.println("<tr><td>" + tar.getString("minTarifa") + "</td><td>" + (tar.getInt("minTarifa") - tar.getInt("minConsumidos")) + "</td></tr>");
+        out.println("<tr><td style='width:100%'>");
+        out.println("<div class='progress'>");
+        out.print("<div class='progress-bar' style='width:" + (tar.getInt("minConsumidos")*100)/tar.getInt("minTarifa") + "%' role='progressbar' aria-valuenow='" + tar.getInt("minConsumidos") + "' aria-valuemin='0' aria-valuemax='" + tar.getInt("minTarifa") + "'></div>");
+        out.println("</div>");
+        out.print("<span>" + (tar.getInt("minConsumidos")*100)/tar.getInt("minTarifa") + " %</span>");
+        out.println("</tr></td>");
         out.println("<tr><th colspan=2 > Megas </th></tr>");
-        out.println("<tr><td>" + tar.getString("mbTarifa") + "</td><td>" + (tar.getInt("mbTarifa") - tar.getInt("mbConsumidos")) + "</td></tr>");
+        out.println("<tr><td>");
+        out.println("<div class='progress'>");
+        out.println("<div class='progress-bar' style='width:" + (tar.getInt("mbConsumidos")*100)/tar.getInt("mbTarifa") + "%' role='progressbar' aria-valuenow='" + tar.getInt("mbConsumidos") + "' aria-valuemin='0' aria-valuemax='" + tar.getInt("mbTarifa") + "'></div>");
+        out.println("</div>");
+        out.print("<span>" + (tar.getInt("mbConsumidos")*100)/tar.getInt("mbTarifa") + " %</span>");
+        out.println("</tr></td>"); 
         out.println("</table>"); 
         //tarifa = tar.getString("nomTarifa");
       }

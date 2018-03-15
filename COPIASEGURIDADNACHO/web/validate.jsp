@@ -1,24 +1,38 @@
-<%@page import="java.sql.*"%>
-  <%
-    String userid = request.getParameter("mail");    
-    String pwd = request.getParameter("password");
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachophone","root", "");
-    Statement st = con.createStatement();
-    ResultSet rs;
-    rs = st.executeQuery("select * from usuario where email='" + userid + "' and passw='" + pwd + "'");
-    if (rs.next()) {
-      session.setAttribute("userid", userid);
-      //out.println("welcome " + userid);
-      //out.println("<a href='logout.jsp'>Log out</a>");
-      response.sendRedirect("usuario.jsp");
-    } else { 
-   %>
-      <script type="text/javascript">
-        window.location.href = "index.jsp";
-        window.onload(alert("Correo o contraseña inválidos, por favor pulsa 'Aceptar' e inténtalo de nuevo"));
-      </script> 
-    <%
-      //response.sendRedirect("index.jsp");
-    }
-  %>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+    </head>
+    <body>
+       <%
+    try{
+        String username = request.getParameter("mail");   
+        String password = request.getParameter("password");
+        out.println(username);
+        out.println(password);
+        Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");    
+        PreparedStatement pst = conn.prepareStatement("Select email,passw from usuario where email=? and passw=?");
+        pst.setString(1, username);
+        pst.setString(2, password);
+        ResultSet rs = pst.executeQuery();                        
+        if(rs.next()) {     
+          //out.println("Valid login credentials");
+          response.sendRedirect("usuario.jsp?mail="+ username);
+        } else {
+          response.sendRedirect("index.jsp?q=cambia");  
+        }
+   }
+   catch(Exception e){       
+       out.println("Something went wrong !! Please try again");       
+   }     
+%>
+    </body>
+</html>
