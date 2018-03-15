@@ -4,7 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
 <head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -33,16 +33,16 @@
     Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
     Statement s = conexion.createStatement();
     ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
+    while (dato.next()) {
   %>
-
   <nav class="navbar navbar-expand-md fixed-top">
-		<a href="usuario.jsp" id="logo-navbar">NachoPhone</a>
+	  <a id="logo-navbar" href="usuario.jsp?mail=<%=correo%>">NachoPhone</a>
 	</nav>
   <main role="main">
     <div class="jumbotron">
       <div class="container">
         <% 
-        while (dato.next()) {
+        
           out.println("<h1 id='bienvenida' class='display-3'> Bienvenido, " + dato.getString("nombre") + "</h1>");
         out.println("</div>");
      out.println("</div>");

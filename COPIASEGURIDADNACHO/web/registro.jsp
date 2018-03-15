@@ -25,8 +25,8 @@
 
   <body>
     <nav class="navbar navbar-expand-md fixed-top">
-    <a href="index.jsp" id="logo-navbar">NachoPhone</a>
-  </nav>
+      <a href="index.jsp" id="logo-navbar">NachoPhone</a>
+    </nav>
     <main id="wrapper-reg" class="d-flex p-3 mx-auto flex-column text-center">
       <form action="guardaUsuario.jsp" method="get" accept-charset="utf-8" id="formulario" onSubmit="return validacion()">
         <h2 class="h1 mb-4 regristro">Regístrate</h2>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" id="nombre" placeholder="Nombre" name="nombre" value="" onchange="quitarError('name', 'errorName')">
+          <input class="form-control" type="text" id="nombre" placeholder="Nombre" name="nombre" value="" onchange="quitarError('nombre', 'errorName')">
           <span id="errorNombre" class="error"> El campo nombre no puede estar vacio</span>
         </div>
         <div class="form-group">

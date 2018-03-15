@@ -94,3 +94,7 @@ table span{
 #izquierda h2{
     text-align: left;
 }
+#modifica{
+    width: 70%;
+    float: left;
+}
