@@ -1,8 +1,9 @@
 #wrapper-reg{
+    
     width: 50%;
 }
 #wrapper-login {
-    position: relative;
+    margin-top: 5%;
     width: 40%;
 }
 #button { 
@@ -28,14 +29,17 @@ a, a:hover{
 h2 {
     color: #3A5EE2;
     text-align: center;
-    margin-bottom: 25px;
-    margin-top: 10%;
+    margin-top: 15%;
     font-size: 2.3em;;
 }
 
-#top {
+.navbar {
     background-color: #3A5EE2;
-    background: linear-gradient(to bottom right, #3A5EE2, #FFF);
+    /*background: linear-gradient(to bottom right, #3A5EE2, #FFF);*/
+}
+#logo-navbar{
+    color: #FFF;
+    font-size: 2em; 
 }
 
 #logo, #logo:visited {
@@ -47,4 +51,51 @@ h2 {
     color: red;
     font-size: 0.8em;
     margin: 0;
+}
+#bienvenida{
+    margin-top:5%;
+}
+#izquierda{
+    float: left;
+    text-align: left;
+    padding: 1em 5em;
+    margin-bottom: 7em;
+}
+#derecha{
+    float: right;
+    text-align: left;
+    padding: 1em 5em;
+    margin-bottom: 7em;
+}
+.custom-select{
+    width: 40%
+}
+table{
+    width: 80%;
+}
+tr{
+    height: 40px;
+}
+th{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+td{
+    height: 40px;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-indent: 2em;
+}
+.progress{
+    height: 30px;
+}
+table span{
+    margin-left: 2em;
+}
+#izquierda h2{
+    text-align: left;
+}
+#modifica{
+    width: 70%;
+    float: left;
 }

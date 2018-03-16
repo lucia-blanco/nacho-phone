@@ -6,24 +6,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    
     <title>Login</title>
 </head>
 
 <body>
     <h2>NachoPhone / Administrador</h2>
+    <% 
+      
+      String mostrar = request.getParameter("q");
 
-    <form action="admin.jsp" method="get" accept-charset="utf-8" onSubmit="return validacion()" id="formulario">
+    %>
+    <form action="aValidacion.jsp" method="get" accept-charset="utf-8"  id="formulario">
+        <div id="<% out.print(mostrar); %>" style="display: none;">Error en las credenciales</div><br/>
         <label for="tlf">Correo electrónico </label><br>
-        <input type="text" id='mail' name='mail' value="" /><span id="elmail" style="display: none; color: red;"> El correo eléctronico no es válido</span><br>
-        <label for="contraseña">Contraseña </label><br>
-        <input type="password" id="contraseña" name="contraseña" value="" /><span id="elpass" style="display: none; color: red;"> La contraseña no es válida</span><br/>
+        <input type="text" id='mail' name='mail'  /><br>
+        <label for="pass">Contraseña </label><br>
+        <input type="password" id="pass" name="pass"  /></span><br/>
 
         <input id="button" type="submit" name="button" value="Acceder">
 
        
     </form>
 </body>
-<script type="text/javascript" src="js/login.js"></script>
+<script>
+    
+    window.onload = function alert() {
+        //mostrar = request.getParameter("q");
+        
+            document.getElementById("cambia").style.display = "inline";
+        
+    };
+    
+    widow.onclick = function quitar () {
+        
+        document.getElementById("cambia").style.display = "none";
+    }
+</script>
 
 </html>

@@ -26,7 +26,7 @@
       String correo = request.getParameter("mail");
       out.println(correo);
       Class.forName("com.mysql.jdbc.Driver");
-      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3399/nachoPhone","root", "");
+      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
       Statement s = conexion.createStatement();
       String query = "DELETE FROM USUARIO WHERE email= '" + correo + "' ";
 

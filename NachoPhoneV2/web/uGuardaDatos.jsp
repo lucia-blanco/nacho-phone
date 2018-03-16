@@ -22,32 +22,31 @@
 
 
 <body>
+  <% request.setCharacterEncoding("UTF-8"); %>
     <%
       String correo = request.getParameter("mail");
       
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
       Statement s = conexion.createStatement();
-
-      request.setCharacterEncoding("UTF-8");
       
       String actualizacion = "UPDATE usuario SET "
                            
-                           + "nombre='" + request.getParameter("nombre")
-                           + "', apellido='" + request.getParameter("apellido")
-                           + "', passw='" + request.getParameter("password")
-                           + "', tlfUsuario='" + request.getParameter("tlf")
-                           + "' WHERE email='" + request.getParameter("mail") + "'";
+        + "nombre='" + request.getParameter("nombre")
+        + "', apellido='" + request.getParameter("apellido")
+        + "', passw='" + request.getParameter("password")
+        + "', tlfUsuario='" + request.getParameter("tlf")
+        + "' WHERE email='" + request.getParameter("mail") + "'";
         
-      s.execute(actualizacion);
-      out.println("Actulizado correctamente");
+      s.execute(actualizacion);  
       conexion.close();
+      response.sendRedirect("uModificaDatos.jsp?mail=" + correo + "&q=cambia");
     %>
-     <form action="usuario2.jsp" method="GET">
+     <!-- <form action="usuario2.jsp" method="GET">
             <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correo); %>" />  
             <div id="boton">
             <input id="button" type="submit" name="button" value="Volver">
             </div>
-        </form>
+        </form> -->
   </body>
 </html>
