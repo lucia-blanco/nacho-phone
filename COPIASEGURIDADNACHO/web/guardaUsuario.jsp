@@ -16,7 +16,6 @@
   
     
     <title></title>
-</head>
 
 <body>
     <%
@@ -27,14 +26,13 @@
       request.setCharacterEncoding("UTF-8");
       
       // Comprueba la existencia del mail de usuario introducido
-      String consultaMail = "SELECT * FROM USUARIO WHERE email='"
-                                + request.getParameter("mail") + "'";      
+      String consultaMail = "SELECT * FROM USUARIO WHERE email='"+ request.getParameter("mail") + "'";      
       
       ResultSet existe = s.executeQuery (consultaMail);
       existe.last();
       
       if (existe.getRow() != 0) {
-        out.println("El correo electrónico  ya está en uso.");
+         response.sendRedirect("registro.jsp?q=cambia");
       } else { 
         String insercion = "INSERT INTO USUARIO (email, passw, dni, nombre, apellido, tlfUsuario) VALUES ("
           
