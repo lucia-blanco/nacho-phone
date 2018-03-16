@@ -21,15 +21,14 @@
 <body>
     <%      
           String correo = request.getParameter("user");
+          out.print(correo);
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
           Statement s = conexion.createStatement();
           ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
          
     %>
-    <nav class="navbar navbar-expand-md fixed-top">
-      <a href="admin.jsp" id="logo-navbar">NachoPhone</a>
-    </nav>
+    <div id="top"><a href="index.jsp" id="logo">NachoPhone</a></div>
     <div id="dp">
         <%
             while (dato.next()) {

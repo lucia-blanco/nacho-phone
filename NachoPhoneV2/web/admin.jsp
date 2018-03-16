@@ -36,11 +36,44 @@
                 out.println("<input name='user' type='radio' value= '" + dato.getString("email") + "'/>" + dato.getString("apellido") + ", " + dato.getString("nombre") +"<br/>");
                 
             }
-            out.println("<input id='button' type='submit' name='button' value='Consultar'>");
-            out.println("</form>");
+            
             conexion.close();  
     
+                
+         String tlf = request.getParameter("numeros");
+         String correo = request.getParameter("mail");
+         String tarifa = "";
+        Class.forName("com.mysql.jdbc.Driver");
+          Connection conexion3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
+          Statement s3 = conexion3.createStatement();
+         
+          
+       ResultSet tar = s3.executeQuery("SELECT APELLIDO,NOMBRE,DNI,TELEFONO,NOMTARIFA,MINCONSUMIDOS,MBCONSUMIDOS" 
+                                       + "FROM GASTO G" 
+                                       + "JOIN USUARIO U ON G.USUARIO=U.IDUSUARIO JOIN TARIFA T ON T.IDTARIFA=G.TARIFA");
+
+    
+        
+        while (tar.next()) {  
+          
+        out.println("<table>");
+        out.println("<tr><th colspan=2 > Tarifa </th></tr>");
+        out.println("<tr><td colspan=2 >" + tar.getString("nomTarifa") + "</td></tr>");
+        out.println("<tr><th colspan=2 > Minutos </th></tr>");
+        out.println("<tr><td>" + tar.getString("minTarifa") + "</td><td>" + (tar.getInt("minTarifa") - tar.getInt("minConsumidos")) + "</td></tr>");
+        out.println("<tr><th colspan=2 > Megas </th></tr>");
+        out.println("<tr><td>" + tar.getString("mbTarifa") + "</td><td>" + (tar.getInt("mbTarifa") - tar.getInt("mbConsumidos")) + "</td></tr>");
+        out.println("</table>"); 
+        
+        tarifa = tar.getString("nomTarifa");
+        }
+        
+        out.println("<input id='button' type='submit' name='button' value='Consultar'>");
+        out.println("</form>");
+        conexion3.close();
             
+
+           
         %>
             <input style="display: none;" type="text" id='mail' name='mail' value="<% out.print(correoAdmin); %>" />
             

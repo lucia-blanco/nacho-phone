@@ -20,27 +20,45 @@
 
 <body>
     <%      
-          String correoAdmin = request.getParameter("mail");
-          Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
-          Statement s = conexion.createStatement();
-          ResultSet dato = s.executeQuery("SELECT * FROM USUARIO ORDER BY APELLIDO");
+        String correoAdmin = request.getParameter("mail");
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conexion3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
+        Statement s3 = conexion3.createStatement();
+        ResultSet dato = s3.executeQuery("SELECT * FROM GASTO G " 
+                                       + "JOIN USUARIO U ON G.USUARIO=U.IDUSUARIO JOIN TARIFA T ON T.IDTARIFA=G.TARIFA ORDER BY U.APELLIDO,U.NOMBRE"
+                                       );
          
     %>
-    <nav class="navbar navbar-expand-md fixed-top">
-      <a href="admin.jsp" id="logo-navbar">NachoPhone</a>
-    </nav>
+    <div id="top"><a href="aLogin.jsp" id="logo">NachoPhone</a></div>
     <div id="dp">
+        <label>Buscar: </label>
+        <input id="searchTerm" type="text" onkeyup="doSearch()" />
         <%
-          out.println("<form action='crudUsuario.jsp' method='GET'>");
+         
+          out.println("<table id='datos'>");
+          out.println("<tr>");
+          out.println("<th>Usuario</th>");
+          out.println("<th>DNI</th>");
+          out.println("<th>Número</th>");
+          out.println("<th>Tarifa</th>");
+          out.println("<th>Minutos consumidos</th>");
+          out.println("<th>Megas consumidos</th>");
+          out.println("</tr>");
             while (dato.next()) {
-                
-                out.println("<input name='user' type='radio' value= '" + dato.getString("email") + "'/>" + dato.getString("apellido") + ", " + dato.getString("nombre") +"<br/>");
-                
-            }
-            out.println("<input id='button' type='submit' name='button' value='Consultar'>");
+            out.println("<form action='crudUsuario.jsp' method='GET'>");
+                out.print("<tr><td>"); 
+                out.print(dato.getString("apellido") + ", " + dato.getString("nombre") +"</td>");
+                out.print("<td>" + dato.getString("dni") + "</td>");
+                out.print("<td>" + dato.getString("telefono") + "</td>");
+                out.print("<td>" + dato.getString("nomtarifa") + "</td>");
+                out.print("<td>" + dato.getString("minconsumidos") + "</td>");
+                out.print("<td>" + dato.getString("mbconsumidos") + "</td>");
+            out.println("<td><button type='submit' name='user' value= '" + dato.getString("email") + "'>Modificar</button></td>");
             out.println("</form>");
-            conexion.close();  
+            }
+            out.println("</table>");
+            
+            conexion3.close();  
     
             
         %>
@@ -53,4 +71,5 @@
     </div>
       
 </body>
+    <script src="js/buscadorTabla.js" type="text/javascript"></script>
 </html>
