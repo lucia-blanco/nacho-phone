@@ -11,6 +11,7 @@
         <title></title>
     </head>
     <body>
+      <% request.setCharacterEncoding("UTF-8"); %>
        <%
     try{
         String username = request.getParameter("mail");   

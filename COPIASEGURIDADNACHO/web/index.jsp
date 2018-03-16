@@ -26,9 +26,8 @@
 <body id="fondo-principal">
 	<div id="wrapper-login" class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
 		<main role="main" class="inner cover">
-      <% 
-        String mostrar = request.getParameter("q");
-      %>
+      <% request.setCharacterEncoding("UTF-8"); %>
+      <% String mostrar = request.getParameter("q"); %>
       <form action="validate.jsp" method="get" accept-charset="utf-8" onsubmit="return validacion()" id="formulario" class="form-signin">
         <h1 class="h1 mb-3 titulo">NachoPhone</h1>
         <h5 class="h5 font-weight-normal">Por favor, identifícate</h5>

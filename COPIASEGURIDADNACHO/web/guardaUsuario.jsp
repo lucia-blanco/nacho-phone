@@ -18,12 +18,12 @@
     <title></title>
 
 <body>
+  <% request.setCharacterEncoding("UTF-8"); %>
     <%
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
       Statement s = conexion.createStatement();
 
-      request.setCharacterEncoding("UTF-8");
       
       // Comprueba la existencia del mail de usuario introducido
       String consultaMail = "SELECT * FROM USUARIO WHERE email='"+ request.getParameter("mail") + "'";      
@@ -37,21 +37,16 @@
         String insercion = "INSERT INTO USUARIO (email, passw, dni, nombre, apellido, tlfUsuario) VALUES ("
           
           + " '" + request.getParameter("mail")
-          + "', '" + request.getParameter("contraseña")
+          + "', '" + request.getParameter("password")
           + "', '" + request.getParameter("dni")
           + "', '" + request.getParameter("nombre")
           + "', '" + request.getParameter("apellido")
           + "', '" + request.getParameter("tlf") + "')";
         s.execute(insercion);
-        out.println("Te has registrado correctamente.");
+        response.sendRedirect("usuario.jsp?mail=" + request.getParameter("mail"));
       }
       conexion.close();
     %>
-        <form action="index.jsp" method="GET">
-            <div id="boton">
-            <input id="button" type="submit" name="button" value="Volver">
-            </div>
-        </form>
 
     
 </body>

@@ -28,6 +28,7 @@
       <a href="index.jsp" id="logo-navbar">NachoPhone</a>
     </nav>
     <main id="wrapper-reg" class="d-flex p-3 mx-auto flex-column text-center">
+      <% request.setCharacterEncoding("UTF-8"); %>
       <% 
         String mostrar = request.getParameter("q");
       %>
@@ -57,7 +58,7 @@
           <span id="errorNombre" class="error"> El campo nombre no puede estar vacio</span>
         </div>
         <div class="form-group">
-          <input class="form-control" placeholder="Apellido" type="text" id="apellido" name="apellido1" required autofocus value="">
+          <input class="form-control" placeholder="Apellido" type="text" id="apellido" name="apellido" required autofocus value="">
           <span id="errorApellido" class="error">El campo apellido no puede estar vacio</span>
         </div>
         <div class="form-row form-group">

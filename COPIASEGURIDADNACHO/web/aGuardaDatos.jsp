@@ -22,6 +22,7 @@
 
 
 <body>
+  <% request.setCharacterEncoding("UTF-8"); %>
     <%
       String correo = request.getParameter("mail");
       Class.forName("com.mysql.jdbc.Driver");
@@ -34,12 +35,12 @@
                            
                            + "nombre='" + request.getParameter("nombre")
                            + "', apellido='" + request.getParameter("apellido")
-                           + "', passw='" + request.getParameter("contraseña")
+                           + "', passw='" + request.getParameter("password")
                            + "', tlfUsuario='" + request.getParameter("tlf")
                            + "' WHERE email='" + request.getParameter("mail") + "'";
         
       s.execute(actualizacion);
-      out.println("Actulizado correctamente");
+      response.sendRedirect("uModificaDatos.jsp?mail=" + correo + "&q=cambia");
       conexion.close();
     %>
      <form action="crudUsuario.jsp" method="GET">
