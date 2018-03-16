@@ -29,18 +29,22 @@
 </head>
 
 <body>
- <%      
+  <% request.setCharacterEncoding("UTF-8"); %>
+ <%     
+    String mostrar = request.getParameter("q"); 
+
     String correo = request.getParameter("mail");
     Class.forName("com.mysql.jdbc.Driver");
     Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");
     Statement s = conexion.createStatement();
+
     ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
     while (dato.next()) {
   %>  
-  <nav class="navbar navbar-expand-md fixed-top">
+  <nav class="navbar navbar-expand-md">
     <a id="logo-navbar" href="usuario.jsp?mail=<%=correo%>">NachoPhone</a>
   </nav>
-  <main id="wrapper-reg" class="d-flex p-3 mx-auto flex-column text-center">
+  <main id="wrapper-reg" class="d-flex p-3 mx-auto flex-column text-center mt-5">
     <form id="modifica" class="text-left" action="uGuardaDatos.jsp" method="GET">
       <div class="form-group row">
         <label class="col-sm-6 col-form-label" for="mail">Correo</label>
@@ -83,10 +87,23 @@
       </div> 
       <a class="btn" href="usuario.jsp?mail=<%=correo%>">Volver</a>
     </form>
+    <div id="<% out.print(mostrar); %>" class="alert alert-success" role="alert" style="display: none">
+      Datos actualizados correctamente
+    </div>
     <%    
       }
         conexion.close(); 
     %>
   </main>
 </body>
+<script>
+    window.onload = function alert() {
+      //mostrar = request.getParameter("q");
+      document.getElementById("cambia").style.display = "inline-block";
+    };
+    
+    window.onclick = function quitar() {
+      document.getElementById("cambia").style.display = "none";
+    };
+</script>
 </html>

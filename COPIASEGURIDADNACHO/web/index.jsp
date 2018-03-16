@@ -29,7 +29,7 @@
       <% 
         String mostrar = request.getParameter("q");
       %>
-      <form action="validate.jsp" method="get" accept-charset="utf-8" onSubmit="return validacion()" id="formulario" class="form-signin">
+      <form action="validate.jsp" method="get" accept-charset="utf-8" onsubmit="return validacion()" id="formulario" class="form-signin">
         <h1 class="h1 mb-3 titulo">NachoPhone</h1>
         <h5 class="h5 font-weight-normal">Por favor, identifícate</h5>
         <span id="<% out.print(mostrar); %>" style="display: none;"class="alert alert-danger mt-3" role="alert">Correo electrónico o contraseña inválidos</span><br>

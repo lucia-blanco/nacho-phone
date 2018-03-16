@@ -1,4 +1,5 @@
 #wrapper-reg{
+    
     width: 50%;
 }
 #wrapper-login {
@@ -52,7 +53,7 @@ h2 {
     margin: 0;
 }
 #bienvenida{
-    margin-top:7%;
+    margin-top:5%;
 }
 #izquierda{
     float: left;

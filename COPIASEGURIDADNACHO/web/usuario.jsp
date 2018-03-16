@@ -26,7 +26,7 @@
 </head>
 
 <body onload='showFields(document.getElementById("numeros").value)'>
-  
+  <% request.setCharacterEncoding("UTF-8"); %>
   <%      
     String correo = request.getParameter("mail");
     Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,7 @@
     ResultSet dato = s.executeQuery("SELECT * FROM USUARIO WHERE email= '" + correo + "' ");
     while (dato.next()) {
   %>
-  <nav class="navbar navbar-expand-md fixed-top">
+  <nav class="navbar navbar-expand-md">
 	  <a id="logo-navbar" href="usuario.jsp?mail=<%=correo%>">NachoPhone</a>
 	</nav>
   <main role="main">
