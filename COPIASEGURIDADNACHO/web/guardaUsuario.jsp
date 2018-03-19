@@ -43,7 +43,7 @@
           + "', '" + request.getParameter("apellido")
           + "', '" + request.getParameter("tlf") + "')";
         s.execute(insercion);
-        response.sendRedirect("usuario.jsp?mail=" + request.getParameter("mail"));
+        response.sendRedirect("admin.jsp?mail=" + request.getParameter("mail"));
       }
       conexion.close();
     %>

@@ -34,7 +34,7 @@
     %>
     <form action="aValidacion.jsp" method="get" accept-charset="utf-8"  id="formulario">
         <div id="<% out.print(mostrar); %>" style="display: none;">Error en las credenciales</div><br/>
-        <label for="tlf">Correo electrónico </label><br>
+        <label for="mail">Correo electrónico </label><br>
         <input type="text" id='mail' name='mail'  /><br>
         <label for="pass">Contraseña </label><br>
         <input type="password" id="pass" name="pass"  /></span><br/>

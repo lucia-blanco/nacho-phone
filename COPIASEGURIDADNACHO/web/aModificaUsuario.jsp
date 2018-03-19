@@ -36,7 +36,7 @@
 <body>
   <% request.setCharacterEncoding("UTF-8"); %>
       <%      
-        String mostrar = request.getParameter("q");
+          String mostrar = request.getParameter("q");
           String correo = request.getParameter("mail");
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");

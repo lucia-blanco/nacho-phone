@@ -31,7 +31,7 @@
       <% 
         String mostrar = request.getParameter("q");
       %>
-      <form action="guardaUsuario.jsp" method="get" accept-charset="utf-8" id="formulario" onSubmit="return validacion()">
+      <form action="guardaUsuario.jsp" method="get" accept-charset="utf-8" id="formulario" onsubmit="return validacion()">
         <h2 class="h1 mb-4 regristro">Regístrate</h2>
         <div class="form-row form-group">
           <div class="col">
