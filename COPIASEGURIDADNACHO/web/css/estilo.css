@@ -99,3 +99,76 @@ table span{
     width: 70%;
     float: left;
 }
+#datos{
+    background-color: #FFF;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;  
+}
+#datos td, #datos tr, #datos th {
+    border-bottom: 1px solid black;
+    font-size: 1em;
+    padding-left: -30px;
+    text-indent: 15px;    
+}
+#datos th {
+    background-color: #3A5EE2;
+    color: #FFF;
+    border-bottom: 1px solid #3A5EE2;
+}
+.td-btn {
+    text-align: right;
+}
+.datosTarifa {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+}
+.datosTarifa select {
+    width: 80%;
+}
+.datosTarifa2 {
+    width: 25%;
+    float: left;
+}
+.datosTarifa3{
+    width: 75%;
+    float: left;
+    
+}
+.formadmin {
+    width: 100%;
+}
+.admininp {
+    width: 15%;
+}
+#btn-ok{
+  width: 5%;
+padding: 0px;  
+}
+#Show_update {
+    width: 20%;
+    text-align: center;
+    min-height: 40px;  
+}
+#Show_update table {
+    width: 100%;
+    text-align: center; 
+}
+.usuarios {
+    margin-top: 20px;
+    width: 100%;
+}  
+.datosTarifa4 {
+    width: 100%;
+    margin: 0 auto;
+}
+#eluser {
+    color: #eee;
+    background-color: transparent;
+    border: none;
+}
+#salir{
+    color: #FFF;
+}
