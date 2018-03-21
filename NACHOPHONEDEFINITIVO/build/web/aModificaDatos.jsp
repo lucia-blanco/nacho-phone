@@ -81,7 +81,7 @@
       </div>
       <div id="envio">
         <input id="button" class="btn" type="submit" name="button" value="Enviar">
-        <input type="hidden" name="user" value="<%=user%>"/>
+        <input type="hidden" name="user" value="<%= dato.getString("email")%>"/>
       </div> 
       <a class="btn" href="admin.jsp?mail=<%=emailAdmin%>">Volver</a>
      

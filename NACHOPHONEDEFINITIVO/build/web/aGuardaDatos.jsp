@@ -22,7 +22,6 @@
 
 
 <body>
-  <% request.setCharacterEncoding("UTF-8"); %>
     <%
       String emailAdmin = request.getParameter("emailAdmin");
       
@@ -42,15 +41,10 @@
                            + "' WHERE email='" + request.getParameter("user") + "'";
         
       s.execute(actualizacion);
-<<<<<<< HEAD
      
-=======
-      response.sendRedirect("uModificaDatos.jsp?mail=" + correo + "&q=cambia");
->>>>>>> 938f3da8fb7b72d467412b7677d82e0f6bf80cb6
       conexion.close();
       response.sendRedirect("admin.jsp?email="+ emailAdmin);
     %>
      
   </body>
 </html>
-
