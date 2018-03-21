@@ -14,15 +14,9 @@
       <% request.setCharacterEncoding("UTF-8"); %>
        <%
     try{
-<<<<<<< HEAD
-        String username = request.getParameter("mail");   
-        String password = request.getParameter("password");
-        out.println(username);
-=======
         String mail = request.getParameter("mail");   
-        String password = request.getParameter("pass");
+        String password = request.getParameter("password");
         out.println(mail);
->>>>>>> 938f3da8fb7b72d467412b7677d82e0f6bf80cb6
         out.println(password);
         Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nachoPhone","root", "");    

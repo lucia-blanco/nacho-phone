@@ -42,7 +42,6 @@
     <div class="jumbotron">
       <div class="container">
         <% 
-        
           out.println("<h1 id='bienvenida' class='display-3'> Bienvenido, " + dato.getString("nombre") + "</h1>");
         out.println("</div>");
      out.println("</div>");
